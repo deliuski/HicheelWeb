@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">SUKINA BRAND</div>
+            <nav>
+            <ul>
+                <li><a href="#">All</a></li>
+                <li><a href="#">Shirts</a></li>
+                <li><a href="#">Stickers</a></li>
+            </ul>
+        </nav>
+        </div>
+        <form class="search-bar" action="/search">
+            <input type="text" placeholder="Search for products...">
+            <i class='bxr  bx-search-big'  ></i> 
+        </form>
+        <div class="products-cart">
+            <i class='bxr  bx-cart'  ></i>
+        </div>
+    </header>
+
+    <main>
+        <% if (message) { %>
+            <p><%= message %></p>
+        <% } %>
+
+        <section>
+            <div class="products-grid">
+            <% products.forEach(product => { %>
+                <div class="product-card">
+                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                    <div class="product-card-info">
+                        <h3><%= product.name %></h3>
+                        <p class="price"><%= product.price %></p>
+                    </div>
+                </div>
+            <% }); %>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Acme Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>
