@@ -1,9 +1,18 @@
 let User = require("../models/User");
 
+exports.checkLogin = function (req, res,next) {
+  if (req.session.user) {
+    next();
+  } else {
+    req.flash("errors", "Та эхлээд нэвтэрнэ үү");
+    req.session.save(() => res.redirect("/"));
+  }
+};
+
 
 exports.home = function (req, res) {
   if (req && req.session.user) {
-    res.render("home-dashboard", { username: req.session.user.username });
+    res.render("home-dashboard");
     return;
   }
   res.render("home-guest" , { errors: req.flash("errors") });

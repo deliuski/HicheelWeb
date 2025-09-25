@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUKINA BRAND</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">SUKINA BRAND</div>
+    <nav>
+      <ul>
+        <li><a href="#">All</a></li>
+        <li><a href="#">Shirts</a></li>
+        <li><a href="#">Stickers</a></li>
+      </ul>
+    </nav>
+    <div class="right-section">
+      <form class="search-bar" action="/search">
+        <input type="text" placeholder="Search for products...">
+        <i class='bx bx-search'></i> 
+      </form>
+      <i id="user-icon" class='bx bx-user'></i> 
+      <i class='bx bx-cart'></i>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Launch your store in minutes.</h1>
+      <p>Stripe-native. Built for AI.</p>
+      <button class="hero-btn">Try it today</button>
+    </div>
+    <div class="hero-img">
+      <img src="https://via.placeholder.com/400x300.png?text=Product+Image" alt="Hero product">
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <main>
+    <% if (message) { %>
+      <p><%= message %></p>
+    <% } %>
+
+    <section>
+      <div class="products-grid">
+        <% products.forEach(product => { %>
+          <div class="product-card">
+            <img src="<%= product.image %>" alt="<%= product.name %>">
+            <div class="product-card-info">
+              <h3><%= product.name %></h3>
+              <p class="price"><%= product.price %></p>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SUKINA BRAND. All rights reserved.</p>
+  </footer>
+  <div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h2>My Cart</h2>
+    <button id="close-cart" class="close-btn">✕</button>
+  </div>
+
+  <div class="cart-items">
+    <!-- Example Item -->
+    <div class="cart-item">
+      <i class='bxr  bx-x'  ></i> 
+      <img src="/images/tshirt.jpg" alt="Acme Cup">
+      <div class="item-info">
+        <p class="item-name">Acme Cup</p>
+        <p class="item-variant">Black</p>
+      </div>
+      <div class="item-actions">
+        <p class="item-price">$15.00 USD</p>
+        <div class="qty-control">
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="cart-item">
+      <i class='bxr  bx-x'  ></i> 
+      <img src="/images/tshirt.jpg" alt="Acme Bag">
+      <div class="item-info">
+        <p class="item-name">Acme Drawstring Bag</p>
+        <p class="item-variant">White / 6 x 8 inch</p>
+      </div>
+      <div class="item-actions">
+        <p class="item-price">$6.00 USD</p>
+        <div class="qty-control">
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <p><span>Taxes</span><span>$0.00 USD</span></p>
+    <p><span>Shipping</span><span>Calculated at checkout</span></p>
+    <p><strong>Total</strong><strong>$21.00 USD</strong></p>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</div>
+
+  
+  <script src="front-app.js"></script>
+</body>
+</html>
