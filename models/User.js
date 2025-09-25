@@ -6,6 +6,7 @@ let User = function (data) {
   this.data = data;
   this.name = "saraa";
   this.errors = [];
+  this._id = null;
 };
 
 
@@ -17,6 +18,7 @@ User.prototype.login = async function () {
     });
 
     if (loginuser && bcrypt.compareSync(this.data.password, loginuser.password)) {
+      this._id = loginuser._id;
       resolve("Congratulations! Login success!");
     } else {
       reject("Invalid username or password...");

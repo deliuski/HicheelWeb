@@ -24,7 +24,7 @@ exports.login = function (req, res) {
   user
     .login()
     .then(function (result) {
-      req.session.user = { username: user.data.username };
+      req.session.user = { username: user.data.username , _id: user._id };
       // sessoin Ийг mongodb дээр хадгалж дуусыны дараа redirect хийх
       req.session.save(() =>  {
         res.redirect("/");
